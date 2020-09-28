@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+      <record id="view_ptoduct_template_volume" model="ir.ui.view">
+            <field name="name">product.template.volume</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="tiles_value"/>
+                   <field name="sqft_pro"/>
+                </field>
+            </field>
+        </record>
+
+
+
+              <record id="view_order_form_inherit_sddddale_stock" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="tiles_value" />
+                     <field name="sqft_pro" />
+                </xpath>
+            </field>
+              </record>
+  </data>
+</odoo>
